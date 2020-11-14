@@ -1,0 +1,40 @@
+/*通用*/
+*{
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    user-select: none;
+}
+/*通用*/
+
+#RfullScroll{
+}
+#RfullScroll{
+}
+.Rsection{
+    width: 100%;
+}
+.Rsection:nth-child(1){
+    height: 100vh;
+    background-color: blue;
+}
+.Rsection:nth-child(2){
+    height: 30vh;
+    background-color: deeppink;
+}
+.Rsection:nth-child(3){
+    height: 100vh;
+    background-color: dodgerblue;
+}
+.Rsection:nth-child(4){
+    height: 30vh;
+    background-color: darksalmon;
+}
+.Rsection:nth-child(5){
+    height: 100vh;
+    background-color: darkgoldenrod;
+}
+.Rsection:nth-child(6){
+    height: 50vh;
+    background-color: darkolivegreen;
+}

@@ -1,0 +1,19 @@
+demo1----鼠标互动
+demo2----出场动画
+demo3----背景动画
+RfullScroll----整屏滚动:鼠标滚轮滚动翻屏，每屏高度适应，导航按钮, 每屏需要Rsection类名
+    <div id="RfullScroll" Rspeed="700" Rposition="bottom">
+        <div class="Rsection">1</div>
+        <div class="Rsection">2</div>
+        <div class="Rsection">3</div>
+        <div class="Rsection">4</div>
+        <div class="Rsection">5</div>
+        <div class="Rsection">6</div>
+    </div>
+    Rspeed---滚屏速度
+    Rposition---下一屏的位置,默认top,即滚至可视区域顶部，可选bottom滚至可视区域底部
+demo5----视差效果
+demo6----数字跳动:
+demo7----蜂巢布局
+demo8----3D动画
+demo9----点动视频
