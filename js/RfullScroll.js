@@ -1,7 +1,7 @@
 /*封装*/
 function RfullScroll() {
     var RfullScrollView = $('#RfullScroll');
-    var switchTime = 10000;//防抖时间
+    var switchTime = 1000;//防抖时间
     var switchTime = RfullScrollView.attr('Rspeed');//防抖时间
     var Rposition = "top";
     var Rposition = RfullScrollView.attr('Rposition');
@@ -9,8 +9,8 @@ function RfullScroll() {
     var Rsection = $('.Rsection');//单屏集合
     var duration = 300;//滚动后摇
     var curIndex = 0;//当前屏标
-
-    console.log(Rsection)
+    var Rpager = $('#Rpager div')//分页器
+    $('#Rpager div:first-child').addClass("Rselected")
 
     /*取消滚轮对鼠标的控制*/
     document.addEventListener('mousewheel',function (evt,delta) {
@@ -39,20 +39,20 @@ function RfullScroll() {
         if (e.wheelDelta) {//IE/Opera/Chrome
             t = e.wheelDelta;
             
-            console.log(curIndex);
+            // console.log(curIndex);
             if (t > 0 && curIndex > 0) {//上滚动
                 
                 // beforeSwitch();
                 movePrev();
                 // afterSwitch();
-                console.log(curIndex);
+                // console.log(curIndex);
 
             } else if (t < 0 && curIndex < Rsection.length - 1) {//下滚动
                 
                 // beforeSwitch();
                 moveNext();
                 // afterSwitch();
-                console.log(curIndex);
+                // console.log(curIndex);
 
             }
         } 
@@ -88,7 +88,11 @@ function RfullScroll() {
         /* 设置位置 */
 
         $("html,body").animate({scrollTop:scrollH},switchTime);
-        
+
+        /*分页器颜色*/
+        Rpager.removeClass('Rselected');
+        $(Rpager[curIndex]).addClass('Rselected');
+        /*分页器颜色*/
         
     }
 
@@ -105,10 +109,48 @@ function RfullScroll() {
         /* 设置位置 */
         
         $("html,body").animate({scrollTop:scrollH},switchTime);
+
+        /*分页器颜色*/
+        Rpager.removeClass('Rselected');
+        $(Rpager[curIndex]).addClass('Rselected');
+        /*分页器颜色*/
         
     }
 
-    init();
+    /*分页器切换*/
+    function Rpagger (){
+        Rpager.click(function(){
+            Rpager.removeClass('Rselected');
+            $(this).addClass('Rselected');
+
+            var Rcurindex = $(this).attr('Rcurindex');
+
+            // console.log(Rcurindex)
+
+            if(Rcurindex){
+                curIndex = Rcurindex;
+            }else{
+                
+                curIndex = $(this).index();
+            }
+            
+            var scrollH = $($(".Rsection")[curIndex]).offset().top;
+
+            /* 设置位置 */
+            if(Rposition == "bottom"){
+                scrollH = $($(".Rsection")[curIndex]).offset().top - $(window).height() + $($(".Rsection")[curIndex]).height();
+            }
+            /* 设置位置 */
+            
+            $("html,body").animate({scrollTop:scrollH},switchTime);
+            
+        })
+    }
+    /*分页器切换*/
+
+    Rpagger();/*分页器切换*/
+
+    init();/*监听鼠标滚动*/
 }
 /*封装*/
 

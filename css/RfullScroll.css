@@ -6,11 +6,27 @@
     user-select: none;
 }
 /*通用*/
-
-#RfullScroll{
+/*导航按钮css*/
+#Rpager{
+    position: fixed;
+    right: 1vw;
+    top: 25vh;
+    height: 50vh;
+    width: 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
-#RfullScroll{
+#Rpager div{
+    background-color: darkgray;
+    height: 1vw;
+    width: 1vw;
+    border-radius: 0.5vw;
 }
+#Rpager .Rselected{
+    background-color: orangered;
+}
+/*展示效果用CSS，非必要*/
 .Rsection{
     width: 100%;
 }
